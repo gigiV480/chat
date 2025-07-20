@@ -1,0 +1,69 @@
+/* Overall container */
+.container {
+  display: flex;
+  width: 100vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f5f8fa;
+  box-sizing: border-box;
+}
+
+/* Contacts sidebar */
+.contactsList {
+  width: 280px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+/* Chat window takes remaining space */
+.chatWindow {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ece5dd;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Placeholder text when no chat selected */
+.noChatSelected {
+  margin: auto;
+  font-size: 1.25rem;
+  color: #777;
+  padding: 1rem;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .contactsList {
+    width: 100%;
+    height: 100vh;
+    border-right: none;
+    padding: 0;
+  }
+
+  .chatWindow {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* Hide contacts when chat open */
+  .chatOpen .contactsList {
+    display: none;
+  }
+
+  /* Full width chat when open */
+  .chatOpen .chatWindow {
+    width: 100vw;
+    height: 100vh;
+  }
+}
